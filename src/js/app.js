@@ -4,5 +4,6 @@ var Todo = Todo || {};
   'use strict';
 
   var app = new Todo.AppView();
+  Todo.app = app;
   app.render();
 }());

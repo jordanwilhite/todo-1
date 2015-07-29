@@ -6,16 +6,22 @@ var Todo = Todo || {};
   Todo.AppView = Backbone.View.extend({
     el: '#todo-app',
 
-    initialize: function(){
-      this.addView = new Todo.AddView();
+    initialize: function() {
+      var todos = new Todo.TodosCollection();
+      this.addView = new Todo.AddView({
+        collection: todos
+      });
       this.listView = new Todo.ListView({
-        collection: Todo.TodosCollection
+        collection: todos
       });
     },
 
     render: function() {
-      this.$('header').html(this.addView.render());
-      this.$('main').html(this.listView.render());
+      this.addView.render();
+      this.listView.render();
+
+      this.$('header').append(this.addView.el);
+      this.$('main').html(this.listView.el);
     }
   });
 }());

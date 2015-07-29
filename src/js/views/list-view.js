@@ -4,18 +4,29 @@ var Todo = Todo || {};
   'use strict';
 
   Todo.ListView = Backbone.View.extend({
-    template: _.template($('#listView').html()),
-
     tagName: 'ul',
 
-    initialize: function(){
-      this.listenTo(this.collection, 'add', this.render);
+    initialize: function() {
+      this.listenTo(this.collection, 'add', this.addOne);
+      this.listenTo(this.collection, 'all', function(){
+        // console.log(arguments);
+      });
+    },
+
+    addAll: function() {
+      this.collection.each(function(todo) {
+        this.addOne(todo);
+      }, this);
+    },
+
+    addOne: function(todo){
+      var view = new Todo.TodoView({model: todo});
+      this.$el.append(view.render().el);
+
     },
 
     render: function() {
-      return this.$el.html(this.template({
-        todos: this.collection.toJSON()
-      }));
+      return this;
     }
   });
 }());

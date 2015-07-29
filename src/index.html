@@ -9,12 +9,11 @@
   <body>
 
     <h1>Todos</h1>
-    <div id="todo-app">
+    <div id="todo-app" class="todo-app">
       <header></header>
       <main></main>
       <footer></footer>
     </div>
-
 
 
     <!-- Templates -->
@@ -22,20 +21,14 @@
       <input id="new-todo" placeholder="What needs to be done?" autofocus>
     </script>
 
-    <script type="text/template" id="listView">
-      <% _.each(todos, function(todo){ %>
-        <li>
-          <div class="view">
-    				<input class="toggle" type="checkbox" <%= todo.completed ? 'checked' : '' %>>
-    				<label><%- todo.title %></label>
-    				<button class="destroy"></button>
-    			</div>
-    			<input class="edit" value="<%- todo.title %>">
-        </li>
-      <% })%>
+    <script type="text/template" id="todoView">
+        <div class="view">
+          <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+          <label><%- title %></label>
+          <button class="destroy"></button>
+        </div>
+        <input class="edit" value="<%- title %>">
     </script>
-
-
 
     <!-- Third Party Libraries -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -45,6 +38,7 @@
     <!-- App Specific Files-->
     <script src="js/models/todo.js"></script>
     <script src="js/collections/todos.js"></script>
+    <script src="js/views/todo-view.js"></script>
     <script src="js/views/list-view.js"></script>
     <script src="js/views/add-view.js"></script>
     <script src="js/views/app-view.js"></script>

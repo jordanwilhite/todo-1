@@ -11,10 +11,11 @@ var Todo = Todo || {};
     },
 
     render: function() {
-      return this.$el.html(this.template());
+      this.$el.html(this.template());
+      return this;
     },
 
-    onEnterPress: function(event){
+    onEnterPress: function(event) {
       var ENTER_KEY = 13;
 
       // Listens for the enter key to be pressed
@@ -26,7 +27,7 @@ var Todo = Todo || {};
         $input.val('');
 
         // Add the new model to the todos collection
-        Todo.TodosCollection.add({
+        this.collection.add({
           title: text
         });
       }
