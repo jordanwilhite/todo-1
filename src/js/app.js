@@ -2,7 +2,8 @@
 
 import AppView from './views/app-view';
 
-var Todo = Todo || {};
+var Todo = window.Todo = window.Todo || {};
+
 (function() {
 
   var app = new AppView();
