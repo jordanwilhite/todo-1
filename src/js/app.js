@@ -1,9 +1,12 @@
+'use strict';
+
+import AppView from './views/app-view';
+
 var Todo = Todo || {};
-
 (function() {
-  'use strict';
 
-  var app = new Todo.AppView();
-  Todo.app = app;
+  var app = new AppView();
   app.render();
+
+  Todo.app = app;
 }());

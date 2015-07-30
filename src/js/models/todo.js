@@ -1,12 +1,10 @@
-var Todo = Todo || {};
+'use strict';
 
-(function() {
-  'use strict';
+var TodoModel = Backbone.Model.extend({
+  defaults: {
+    title: '',
+    completed: false
+  }
+});
 
-  Todo.TodoModel = Backbone.Model.extend({
-    defaults: {
-      title: '',
-      completed: false
-    }
-  });
-}());
+export default TodoModel;

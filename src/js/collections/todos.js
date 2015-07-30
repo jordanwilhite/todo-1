@@ -1,9 +1,7 @@
-var Todo = Todo || {};
+import TodoModel from '../models/todo';
 
-(function() {
-  'use strict';
+var TodosCollection = Backbone.Collection.extend({
+  model: TodoModel
+});
 
-  Todo.TodosCollection = Backbone.Collection.extend({
-    model: Todo.TodoModel
-  });
-}());
+export default TodosCollection;

@@ -12,10 +12,11 @@
   "license": "MIT",
   "dependencies": {
     "babel": "^5.8.9",
+    "browserify": "^11.0.1",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
-    "gulp-babel": "^5.1.0",
     "gulp-jscs": "^1.6.0",
-    "gulp-sass": "^2.0.4"
+    "gulp-sass": "^2.0.4",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

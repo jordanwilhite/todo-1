@@ -1,16 +1,11 @@
-var Todo = Todo || {};
+'use strict';
+import TodoView from './todo-view';
 
-(function() {
-  'use strict';
-
-  Todo.ListView = Backbone.View.extend({
+var ListView = Backbone.View.extend({
     tagName: 'ul',
 
     initialize: function() {
       this.listenTo(this.collection, 'add', this.addOne);
-      this.listenTo(this.collection, 'all', function(){
-        // console.log(arguments);
-      });
     },
 
     addAll: function() {
@@ -19,8 +14,8 @@ var Todo = Todo || {};
       }, this);
     },
 
-    addOne: function(todo){
-      var view = new Todo.TodoView({model: todo});
+    addOne: function(todo) {
+      var view = new TodoView({model: todo});
       this.$el.append(view.render().el);
 
     },
@@ -29,4 +24,5 @@ var Todo = Todo || {};
       return this;
     }
   });
-}());
+
+export default ListView;

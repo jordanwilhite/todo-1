@@ -1,27 +1,29 @@
-var Todo = Todo || {};
+'use strict';
 
-(function() {
-  'use strict';
+import TodosCollection from '../collections/todos';
+import AddView from '../views/add-view';
+import ListView from '../views/list-view';
 
-  Todo.AppView = Backbone.View.extend({
-    el: '#todo-app',
+var AppView = Backbone.View.extend({
+  el: '#todo-app',
 
-    initialize: function() {
-      var todos = new Todo.TodosCollection();
-      this.addView = new Todo.AddView({
-        collection: todos
-      });
-      this.listView = new Todo.ListView({
-        collection: todos
-      });
-    },
+  initialize: function() {
+    var todos = new TodosCollection();
+    this.addView = new AddView({
+      collection: todos
+    });
+    this.listView = new ListView({
+      collection: todos
+    });
+  },
 
-    render: function() {
-      this.addView.render();
-      this.listView.render();
+  render: function() {
+    this.addView.render();
+    this.listView.render();
 
-      this.$('header').append(this.addView.el);
-      this.$('main').html(this.listView.el);
-    }
-  });
-}());
+    this.$('header').append(this.addView.el);
+    this.$('main').html(this.listView.el);
+  }
+});
+
+export default AppView;
