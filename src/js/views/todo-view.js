@@ -85,6 +85,7 @@ let TodoView = Backbone.View.extend({
   },
 
   toggleVisible: function(filter){
+    console.log('called togglevisible');
     this.$el.toggleClass('hidden', this.isHidden(filter));
   },
 

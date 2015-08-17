@@ -34,4 +34,4 @@ let AppView = Backbone.View.extend({
 });
 
 
-export default AppView;
+export default new AppView();
